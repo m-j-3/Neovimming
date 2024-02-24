@@ -9,7 +9,7 @@ function Map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 vim.g.mapleader = " "
-Map("n", ":LH", ":LazyHealth")
+Map("n", ":LH", ":LazyHealth<CR>")
 
 --Must-Have Neovim Keymaps https://medium.com/unixification/must-have-neovim-keymaps-51c283394070
 --Movement
@@ -70,7 +70,7 @@ Map("n", "N", "Nzzzv")
 --Code Compiling and Running
 vim.keymap.set(
   "n",
-  "<leader>cc",
+  "<leader>ccc",
   ":!gcc % -o %<.exe && %<.exe<CR>",
   { noremap = true, silent = true, desc = "Compile and Run C/C++ files" }
 )
@@ -87,7 +87,7 @@ vim.keymap.set(
   ":!dotnet run<CR>",
   { noremap = true, silent = true, desc = "Compile and run C# project with .NET Core/5/6+" }
 )
-vim.keymap.set("n", "<leader>cp", ":!python %<CR>", { noremap = true, silent = true, desc = "Run Python file" })
+vim.keymap.set("n", "<leader>cpy", ":!python %<CR>", { noremap = true, silent = true, desc = "Run Python file" })
 
 vim.keymap.set(
   "n",
@@ -96,17 +96,17 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Run JavaScript file with Node.js" }
 )
 
-vim.keymap.set("n", "<leader>cr", ":!ruby %<CR>", { noremap = true, silent = true, desc = "Run Ruby file" })
+vim.keymap.set("n", "<leader>crub", ":!ruby %<CR>", { noremap = true, silent = true, desc = "Run Ruby file" })
 vim.keymap.set(
   "n",
-  "<leader>cj",
+  "<leader>cjav",
   ":!javac % && java %<CR>",
   { noremap = true, silent = true, desc = "Compile and run Java file" }
 )
 
 vim.keymap.set(
   "n",
-  "<leader>cru",
+  "<leader>crus",
   ":!cargo run<CR>",
   { noremap = true, silent = true, desc = "Compile and run Rust project with Cargo" }
 )
@@ -115,14 +115,14 @@ vim.keymap.set("n", "<leader>cg", ":!go run %<CR>", { noremap = true, silent = t
 
 vim.keymap.set(
   "n",
-  "<leader>cf",
+  "<leader>cfor",
   ":!gfortran % && ./a.out<CR>",
   { noremap = true, silent = true, desc = "Compile and run Fortran file" }
 )
 
 vim.keymap.set(
   "n",
-  "<leader>ca",
+  "<leader>cada",
   ":!gnatmake % && ./`basename % .adb`<CR>",
   { noremap = true, silent = true, desc = "Compile and run Ada file" }
 )
