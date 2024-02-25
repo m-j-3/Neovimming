@@ -7,46 +7,15 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
-
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
-    { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.lang.json" },
-    { import = "lazyvim.plugins.extras.ui.mini-animate" },
-    { import = "lazyvim.plugins.extras.linting.eslint" },
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
+    -- { import = "lazyvim.plugins.extras.lang.typescript" },
+    -- { import = "lazyvim.plugins.extras.lang.json" },
+    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     { import = "plugins" },
-    {
-      "neovim/nvim-lspconfig",
-      opts = {
-        setup = {
-          clangd = function(_, opts)
-            opts.capabilities.offsetEncoding = { "utf-16" }
-          end,
-        },
-      },
-    },
-
-    {
-      "neovim/nvim-lspconfig",
-      opts = {
-        servers = { eslint = {} },
-        setup = {
-          eslint = function()
-            require("lazyvim.util").lsp.on_attach(function(client)
-              if client.name == "eslint" then
-                client.server_capabilities.documentFormattingProvider = true
-              elseif client.name == "tsserver" then
-                client.server_capabilities.documentFormattingProvider = false
-              end
-            end)
-          end,
-        },
-      },
-    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
